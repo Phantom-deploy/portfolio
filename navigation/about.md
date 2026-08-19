@@ -61,7 +61,7 @@ Flags are made using Wikipedia images
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
         {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - forever"},
-        {"flag": "https://i.ebayimg.com/images/g/bBQAAOSw~29h-D26/s-l1200.jpg", "greeting": "Namaste", "description": "India - 10 years"},
+        {"flag": "https://cdn11.bigcommerce.com/s-w6fxwapwzi/images/stencil/1280w/products/2646/5509/2x3-india-flag-image__89215.1582736189.jpg", "greeting": "Namaste", "description": "India - 10 years"},
     ];
 
     // 3a. Consider how to update style count for size of container
