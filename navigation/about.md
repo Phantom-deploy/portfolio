@@ -32,6 +32,7 @@ Flags are made using Wikipedia images
     }
     .grid-item p {
         margin: 5px 0; /* Add some margin for spacing */
+        color: #000; /* Keep text readable against the light card background */
     }
 
     .image-gallery {
@@ -61,7 +62,7 @@ Flags are made using Wikipedia images
     var http_source = "https://upload.wikimedia.org/wikipedia/commons/";
     var living_in_the_world = [
         {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - forever"},
-        {"flag": "https://cdn11.bigcommerce.com/s-w6fxwapwzi/images/stencil/1280w/products/2646/5509/2x3-india-flag-image__89215.1582736189.jpg", "greeting": "Namaste", "description": "India - 10 years"},
+        {"flag": "4/41/Flag_of_India.svg", "greeting": "Namaste", "description": "India - 10 years"},
     ];
 
     // 3a. Consider how to update style count for size of container
@@ -99,20 +100,66 @@ Flags are made using Wikipedia images
 
 Here is what I did at those places
 
-- 🏫 Elemantry school was done In India (Private) Search it up it's Greenwood in Banglore
-- 🏫 Middle school at Oak Valley
-- 🎓 Currently in Highschool Del Norte class of 29
+<comment>
+Same grid-building technique as the flags above, applied to my school journey. Icons are placeholders from Wikimedia Commons - swap them for real photos of each school whenever I get the chance.
+</comment>
+
+<div class="grid-container" id="grid_container_journey">
+    <!-- content will be added here by JavaScript -->
+</div>
+
+<script>
+    // 1. Make a connection to the HTML container defined in the HTML div
+    var journeyContainer = document.getElementById("grid_container_journey"); // This container connects to the HTML div
+
+    // 2. Define a JavaScript object for our icon source and our data rows for the Journey through Life grid
+    var journey = [
+        {"icon": "https://commons.wikimedia.org/wiki/Special:FilePath/School_icon.svg", "title": "🏫 Greenwood High International School", "description": "Elementary School (Private) - Bangalore, India"},
+        {"icon": "https://commons.wikimedia.org/wiki/Special:FilePath/Classroom_icon.svg", "title": "🏫 Oak Valley Middle School", "description": "Middle School - San Diego, CA"},
+        {"icon": "https://commons.wikimedia.org/wiki/Special:FilePath/Font_Awesome_5_solid_graduation-cap.svg", "title": "🎓 Del Norte High School", "description": "Currently a student - Class of 29, San Diego, CA"},
+    ];
+
+    // 3a. Reuse the same dynamic grid-template-columns styling defined above, no extra CSS needed
+
+    // 3b. Build grid items inside of our container for each row of data
+    for (const stop of journey) {
+        // Create a "div" with "class grid-item" for each row
+        var journeyItem = document.createElement("div");
+        journeyItem.className = "grid-item"; // This class name connects the gridItem to the CSS style elements
+        // Add "img" HTML tag for the school icon
+        var journeyImg = document.createElement("img");
+        journeyImg.src = stop.icon; // set the icon image
+        journeyImg.alt = stop.title + " icon"; // add alt text for accessibility
+
+        // Add "p" HTML tag for the school name
+        var journeyTitle = document.createElement("p");
+        journeyTitle.textContent = stop.title; // extract the title
+
+        // Add "p" HTML tag for the description
+        var journeyDescription = document.createElement("p");
+        journeyDescription.textContent = stop.description; // extract the description
+
+        // Append img and p HTML tags to the grid item DIV
+        journeyItem.appendChild(journeyImg);
+        journeyItem.appendChild(journeyTitle);
+        journeyItem.appendChild(journeyDescription);
+
+        // Append the grid item DIV to the container DIV
+        journeyContainer.appendChild(journeyItem);
+    }
+</script>
 
 ### Culture, Family, and Fun
 
 Everything for me, as for many others, revolves around family and faith.
 
-- My Background is Pretty Straighforward, I am 100% Indian and You can tell that by looking at my parents and grandparents.
-- My Family is what you call the Strong Base, we have 3 people living in the house Me,My mom and My Dad for which i am very grateful for. Soon my Grandpa will come live with us
-- The gallery of pics has some of my family, fun, culture and faith memories.
+- My background is pretty straightforward, I am 100% Indian and you can tell that by looking at my parents and grandparents.
+- My family is what you call the strong base, we have 3 people living in the house: me, my mom, and my dad, for which I am very grateful. Soon my grandpa will come live with us.
+- The gallery of pics below has some of my family, fun, culture, and faith memories.
 
 <comment>
 Gallery of Pics, scroll to the right for more ...
+Note: browsers generally cannot display .HEIC images, so IMG_7070.HEIC and IMG_0639.HEIC should be converted to .jpg or .png and re-uploaded so they actually show up in the gallery.
 </comment>
 <div class="image-gallery">
   <img src="{{site.baseurl}}/images/about/IMG_2327.PNG" alt="Image 1">
