@@ -1,6 +1,7 @@
 @import "theme/legacy/root-color-map";
 @import "mixins/variables";
-@import "base/typography";
+@import "base/code";
+@import "bathroom";
 @import "blogs";
 @import "projects/all";  // Auto-generated project imports
 @import "chatbot";
@@ -14,6 +15,8 @@
 @import "forms/game-builder";
 @import "forms/game-dialogue-system";
 @import "forms/home-gamified";
+@import "hacks";
+@import "hacks_lxd";
 @import "microblog";
 @import "grading";
 @import "navbar";
