@@ -1,4 +1,5 @@
 import glob
+import multiprocessing
 from nbconvert import MarkdownExporter
 from nbconvert.utils.exceptions import ConversionException
 import os
@@ -1325,7 +1326,10 @@ def convert_notebooks():
         userInfo="Notebook conversion progress:", total=(len(notebook_files))
     )
 
-    with concurrent.futures.ProcessPoolExecutor(max_workers=maxCores) as executor:
+    with concurrent.futures.ProcessPoolExecutor(
+        max_workers=maxCores,
+        mp_context=multiprocessing.get_context("fork"),
+    ) as executor:
         futures = {
             executor.submit(process_notebook, notebook_file): notebook_file
             for notebook_file in notebook_files
